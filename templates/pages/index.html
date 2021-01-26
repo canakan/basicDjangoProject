@@ -1,0 +1,118 @@
+{% extends 'layout.html' %} {% load static %} {% block content %}
+<div class="row">
+  <div style="height: 1rem"></div>
+</div>
+
+<!--   latest blog-->
+<div class="row">
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% if blogs %} {% for blog in blogs %}
+        <div class="col">
+          <div class="card shadow-sm">
+            <a href="{% url 'blogs' %}"
+              ><img
+                class="bd-placeholder-img card-img-top"
+                src="{% static blog.get_image %}"
+                alt="{{blog.title}}"
+                height="225"
+                width="100%"
+            /></a>
+            <div class="card-body">
+              <p class="card-text">{{blog.title}}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a
+                    class="btn btn-sm btn-outline-info"
+                    href="{% url 'blogs' %}"
+                    >View</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %} {% else %}
+        <div class="alert alert-warning">
+          <p>Coming Soon! Add on Admin Panel new Blog</p>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+<!--Button and Text-->
+<div class="row mt-2">
+  <div class="col-md-2">
+    <a
+      class="btn btn-info btn-lg text-white"
+      href="{% url 'blogs' %}"
+      role="button"
+      >Primary</a
+    >
+  </div>
+  <div class="col-md-10">
+    <p class="text-justify">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      Lorem Ipsum has been the industry's standard dummy text ever since the
+      1500s, when an unknown printer took a galley of...
+    </p>
+  </div>
+</div>
+
+<!--HTML Elements-->
+<div class="row mt-3">
+  <div class="col-md-3">
+    <ul class="mt-5">
+      <li style="list-style-type: circle">Linkedin</li>
+      <li style="list-style-type: square">Instagram</li>
+      <li style="list-style-type: disc">Facebook</li>
+      <li style="color: blue"><span class="text-dark">Twiter</span></li>
+    </ul>
+  </div>
+
+  <div class="col-md-3">
+    <div class="col">
+      <div class="card shadow-sm">
+        <img
+          class="bd-placeholder-img card-img-top"
+          src="{% static 'img/logo.png' %}"
+          alt="{{blog.title}}"
+          height="225"
+          width="100%"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="col">
+      <div class="card shadow-sm">
+        <img
+          class="bd-placeholder-img card-img-top"
+          src="{% static 'img/logo.png' %}"
+          alt="{{blog.title}}"
+          height="225"
+          width="100%"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <p class="text-justify">
+      It is a long established fact that a reader will be distracted by the
+      readable content of a page when looking at its layout. The point of using
+      Lorem Ipsum is that it has a more-or-less normal distribution of letters,
+      as opposed to using 'Content here, content here', making it look like
+      readable English. Many desktop publishing packages and web page editors
+      now use
+    </p>
+  </div>
+</div>
+
+<!-- space -->
+<div style="height: 4rem"></div>
+
+{% endblock content %}
